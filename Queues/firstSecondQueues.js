@@ -91,12 +91,12 @@ function isPalindrome (word) {
 
 var word = "hannah";
 
-console.log(word + " is a palindrome:  " + isPalindrome(word));
+print(word + " is a palindrome:  " + isPalindrome(word));
 
 word = "hana";
 
-console.log(word + " is a palindrome:  " + isPalindrome(word));
+print(word + " is a palindrome:  " + isPalindrome(word));
 
 word = "hanah";
 
-console.log(word + " is a palindrome:  " + isPalindrome(word));
+print(word + " is a palindrome:  " + isPalindrome(word));

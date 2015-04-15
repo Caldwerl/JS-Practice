@@ -1,6 +1,8 @@
 /*
-  Create a priority queue for an emergency room where the
-  higher the code the higher the priority.
+  Create a menu system for the previous priority queue to choose from the following activities.
+  1. Patient enters Emergency Room
+  2. Patient is seen by doctor
+  3. Display list of patients waiting to be seen
 */
 
 function priorityQueue () {
@@ -79,49 +81,50 @@ function printPatient (patient) {
   print("Patient being treated: " + patient[0].name);
 }
 
+function printMenu () {
+
+  print("Select one of the following.");
+  print("1. Patient enters Emergency Room");
+  print("2. Patient is seen by doctor");
+  print("3. Display list of patients waiting to be seen");
+  print("4. Quit");
+}
+
 var emergency = new priorityQueue();
 
-var p = new Patient("Smith", 5);
+var p = [];
 
-emergency.enqueue(p);
+p.push(new Patient("Smith", 5));
+p.push(new Patient("Jones", 4));
+p.push(new Patient("Fehrenbach", 6));
+p.push(new Patient("Brown", 1));
+p.push(new Patient("Ingram", 1));
 
-p = new Patient("Jones", 4);
+var choice = 0;
 
-emergency.enqueue(p);
+while (choice != 4) {
 
-p = new Patient("Fehrenbach", 6);
+  printMenu();
+  choice = readline();
 
-emergency.enqueue(p);
+  switch (choice) {
 
-p = new Patient("Brown", 1);
+    case 1:
+      emergency.enqueue(p.shift());
+      break;
 
-emergency.enqueue(p);
+    case 2:
+      var seen = emergency.dequeue();
+      printPatient(seen);
+      break;
 
-p = new Patient("Ingram", 1);
+    case 3:
+      print("Patients waiting to be seen: ");
+      print(emergency.toString());
+      break;
 
-emergency.enqueue(p);
-
-print(emergency.toString());
-
-var seen = emergency.dequeue();
-
-printPatient(seen);
-
-print("Patients waiting to be seen: ");
-
-print(emergency.toString());
-
-var seen = emergency.dequeue();
-
-printPatient(seen);
-
-print("Patients waiting to be seen: ");
-
-print(emergency.toString());
-
-var seen = emergency.dequeue();
-
-printPatient(seen);
-
-print("Patients waiting to be seen: ");
-
+    default:
+      print("Not a valid option.");
+      break;
+  }
+}
