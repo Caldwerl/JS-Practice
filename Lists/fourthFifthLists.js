@@ -146,14 +146,14 @@ function getElement () {
 
 function displayList (list) {
 
-  for (list.front(); list.currPos() < list.length(); list.next()) {
+  for (list.front(); list.currPos() < list.length()-1; list.next()) {
 
     if (list.getElement() instanceof Customer) {
 
       print(list.getElement()["name"] + ", " + list.getElement()["movie"]);
 
     } else {
-      print(list.currPos());
+
       print(list.getElement());
     }
   }
@@ -177,6 +177,24 @@ function checkOut (name, movie, filmList, customerList, rentedList) {
   }
 }
 
+function returnFilm (name, filmList, customerList, rentedList) {
+
+  var movie = '';
+
+  for (customerList.front(); customerList.currPos < customerList.length()-1; customerList.next()) {
+
+    if (name == customerList.getElement().name) {
+
+      movie = customerList.getElement()["movie"];
+
+      customerList.listSize--;
+      customerList.dataStore.splice(customerList.currPos(), 1);
+    }
+  }
+
+  filmList.append(rentedList.remove(movie));
+}
+
 function Customer (name, movie) {
 
   this.name = name;
@@ -184,6 +202,8 @@ function Customer (name, movie) {
 }
 
 var movieList = new List();
+var rentedList = new List();
+var customerList = new List();
 
 movieList.append("Dredd");
 movieList.append("Amadeus");
@@ -197,3 +217,17 @@ movieList.append("Big Trouble in Little China");
 print(movieList.length());
 
 displayList(movieList);
+
+checkOut("Brian", "Dredd", movieList, customerList, rentedList);
+checkOut("David", "Dredd", movieList, customerList, rentedList);
+checkOut("Brian", "Nukie", movieList, customerList, rentedList);
+
+displayList(customerList);
+
+returnFilm("Brian", movieList, customerList, rentedList);
+
+movieList.append("Nukie");
+
+displayList(movieList);
+
+print(movieList.remove("Nukie"));
