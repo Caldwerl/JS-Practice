@@ -125,3 +125,4 @@ printPatient(seen);
 
 print("Patients waiting to be seen: ");
 
+print(emergency.toString());
