@@ -1,7 +1,7 @@
 function Dictionary () {
 
   this.add = add;
-  this.dataStore = [];
+  this.dataStore = {};
   this.find = find;
   this.remove = remove;
   this.showAll = showAll;
@@ -27,14 +27,18 @@ function find (key) {
 
 function remove (key) {
 
-  delete this.dataStore[key];
+  if (this.dataStore[key] == 1) {
+    delete this.dataStore[key];
+  } else {
+    this.dataStore[key] -= 1;
+  }
 }
 
 function count () {
 
   var n = 0;
 
-  for (var key in Object.keys(this.dataStore)) {
+  for (var key in this.dataStore) {
 
     n++;
   }
@@ -44,7 +48,7 @@ function count () {
 
 function clear () {
 
-  for (var key in Object.keys(this.dataStore)) {
+  for (var key in this.dataStore) {
 
     delete this.dataStore[key];
   }
@@ -52,7 +56,11 @@ function clear () {
 
 function showAll () {
 
-  for (var key in Object.keys(this.dataStore).sort()) {
+  if (this.count() == 0) {
+    print("This dictionary is empty.");
+  }
+
+  for (var key in this.dataStore) {
 
     print(key + " -> " + this.dataStore[key]);
   }
@@ -71,4 +79,10 @@ wordCount.add("night");
 wordCount.showAll();
 
 wordCount.add("fly");
+wordCount.showAll();
+
+wordCount.remove("fly");
+wordCount.showAll();
+
+wordCount.clear();
 wordCount.showAll();

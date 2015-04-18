@@ -28,7 +28,7 @@ function count () {
 
   var n = 0;
 
-  for each (var key in Object.keys(this.dataStore)) {
+  for each (var key in this.dataStore) {
 
     n++;
   }
@@ -38,7 +38,7 @@ function count () {
 
 function clear () {
 
-  for each (var key in Object.keys(this.dataStore)) {
+  for each (var key in this.dataStore) {
 
     delete this.dataStore[key];
   }
@@ -46,7 +46,7 @@ function clear () {
 
 function showAll () {
 
-  for each (var key in Object.keys(this.dataStore).sort()) {
+  for each (var key in this.dataStore) {
 
     print(key + " -> " + this.dataStore[key]);
   }
