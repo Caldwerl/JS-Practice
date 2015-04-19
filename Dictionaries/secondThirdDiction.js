@@ -56,13 +56,23 @@ function clear () {
 
 function showAll () {
 
-  if (this.count() == 0) {
+  var count = this.count();
+  var keys = [];
+
+  if (count == 0) {
     print("This dictionary is empty.");
   }
 
   for (var key in this.dataStore) {
 
-    print(key + " -> " + this.dataStore[key]);
+    keys.push(key);
+  }
+
+  keys.sort();
+
+  for (var i = 0; i < count; i++) {
+
+    print(keys[i] + " -> " + this.dataStore[keys[i]]);
   }
 }
 
