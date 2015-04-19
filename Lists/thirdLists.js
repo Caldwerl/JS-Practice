@@ -138,7 +138,9 @@ function getElement () {
 
 function displayList (list) {
 
-  for (list.front(); list.currPos() < list.length(); list.next()) {
+  list.front();
+
+  while (list.currPos() < list.length() - 1) {
 
     if (list.getElement() instanceof Person) {
 
@@ -147,12 +149,16 @@ function displayList (list) {
     } else {
       print(list.getElement());
     }
+
+    list.next();
   }
 }
 
 function displayListGender (list, gender) {
 
-  for (list.front(); list.currPos() < list.length(); list.next()) {
+  list.front();
+
+  while (list.currPos() < list.length() - 1) {
 
     if (list.getElement() instanceof Person) {
 
@@ -163,6 +169,8 @@ function displayListGender (list, gender) {
     } else {
       print(list.getElement());
     }
+
+    list.next();
   }
 }
 
@@ -183,5 +191,7 @@ people.append(new Person("Alysha", "female"));
 people.append(new Person("Cooper", "male"));
 
 displayList(people);
+print();
 displayListGender(people, "male");
+print();
 displayListGender(people, "female");
