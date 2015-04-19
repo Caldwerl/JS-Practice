@@ -101,19 +101,22 @@ p.push(new Patient("Brown", 1));
 p.push(new Patient("Ingram", 1));
 
 var choice = 0;
+var runThrough = [1, 1, 3, 2, 1, 2, 1, 3, 4];
 
 while (choice != 4) {
 
   printMenu();
-  choice = readline();
+  choice = runThrough.shift();
 
   switch (choice) {
 
     case 1:
+      print("New patient has arrived...");
       emergency.enqueue(p.shift());
       break;
 
     case 2:
+      print("The next patient is being seen by a doctor...");
       var seen = emergency.dequeue();
       printPatient(seen);
       break;
@@ -121,6 +124,10 @@ while (choice != 4) {
     case 3:
       print("Patients waiting to be seen: ");
       print(emergency.toString());
+      break;
+
+    case 4:
+      print("Quitting...");
       break;
 
     default:
