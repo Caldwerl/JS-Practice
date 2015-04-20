@@ -28,7 +28,7 @@ function remove (item) {
 
   var currNode = this.find(item);
 
-  if (!(currNode.next == null)) {
+  if (currNode.next != null) {
 
     currNode.previous.next = currNode.next;
     currNode.next.previous = currNode.previous;
@@ -42,7 +42,7 @@ function findLast () {
 
   var currNode = this.head;
 
-  while (!(currNode.next == null)) {
+  while (currNode.next != null) {
 
     currNode = currNode.next;
   }
@@ -54,9 +54,9 @@ function display () {
 
   var currNode = this.head;
 
-  while (!(currNode == null)) {
+  while (currNode != null) {
 
-    print(currNode.next.element);
+    print(currNode.element);
     currNode = currNode.next;
   }
 }
@@ -88,7 +88,7 @@ function dispReverse () {
   var currNode = this.head;
   currNode = this.findLast();
 
-  while (!(currNode.previous == null)) {
+  while (currNode.previous != null) {
 
     print(currNode.element);
     currNode = currNode.previous;
@@ -124,26 +124,35 @@ function show () {
 
 var linkList = new LinkedList();
 
-linkList.insert(new Node("Aoo"));
-linkList.insert(new Node("Boo"));
-linkList.insert(new Node("Coo"));
-linkList.insert(new Node("Doo"));
-linkList.insert(new Node("Eoo"));
-linkList.insert(new Node("Foo"));
-linkList.insert(new Node("Goo"));
-linkList.insert(new Node("Hoo"));
-linkList.insert(new Node("Ioo"));
-linkList.insert(new Node("Joo"));
-linkList.insert(new Node("Koo"));
+linkList.insert("Aoo", "head");
+linkList.insert("Boo", "Aoo");
+linkList.insert("Coo", "Boo");
+linkList.insert("Doo", "Coo");
+linkList.insert("Eoo", "Doo");
+linkList.insert("Foo", "Eoo");
+linkList.insert("Goo", "Foo");
+linkList.insert("Hoo", "Goo");
+linkList.insert("Ioo", "Hoo");
+linkList.insert("Joo", "Ioo");
+linkList.insert("Koo", "Joo");
 
+print("Displaying all...");
 linkList.display();
 
+print("Showing current...");
 linkList.show();
 
+print("Advancing by 2...");
 linkList.advance(2);
 
 linkList.show();
 
+print("Moving back by 1...");
 linkList.back(1);
+
+linkList.show();
+
+print("Advancing by 3...");
+linkList.advance(3);
 
 linkList.show();
