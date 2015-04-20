@@ -1,5 +1,6 @@
 /*
-  Create a function to filter out select elements of a stack while retaining the order.
+  Create a function to filter out select elements of a stack
+  while retaining the order.
 */
 
 function Stack () {
@@ -67,21 +68,42 @@ function filterOutSelect (stack, select) {
 
 var pezDisp = new Stack();
 
-pezDisp.push("red");
-pezDisp.push("red");
 pezDisp.push("white");
-pezDisp.push("yellow");
+print("+white");
 pezDisp.push("red");
+print("+red");
+pezDisp.push("red");
+print("+red");
 pezDisp.push("white");
+print("+white");
 pezDisp.push("yellow");
+print("+yellow");
 pezDisp.push("red");
+print("+red");
 pezDisp.push("white");
+print("+white");
 pezDisp.push("yellow");
+print("+yellow");
+pezDisp.push("yellow");
+print("+yellow");
 pezDisp.push("red");
+print("+red");
+pezDisp.push("white");
+print("+white");
+pezDisp.push("yellow");
+print("+yellow");
 pezDisp.push("red");
+print("+red");
+pezDisp.push("yellow");
+print("+yellow");
+pezDisp.push("red");
+print("+red");
 
+print();
 
 filterOutSelect(pezDisp, "yellow");
+
+print();
 
 while (pezDisp.length() > 0) {
 
