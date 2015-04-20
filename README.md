@@ -30,3 +30,9 @@
 
 1. Convert Infix to Postfix and evaluate the equation
 2. Pez Emulator, Remove select color while retaining order
+
+### LinkedLists
+
+1. Implement advance(n) function
+2. Implement back(n) function
+3. Implement show() function
