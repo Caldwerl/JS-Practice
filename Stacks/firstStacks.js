@@ -102,7 +102,7 @@ function evalPostfix (equation) {
 
   var stack = new Stack();
   var currentChar;
-  var answer = 0;
+  var answer, op1, op2 = 0;
 
   for (var i = 0; i < equation.length; i++) {
 
@@ -111,19 +111,27 @@ function evalPostfix (equation) {
     switch (currentChar) {
 
       case '*':
-        stack.push(stack.pop() * stack.pop());
+        op2 = stack.pop();
+        op1 = stack.pop();
+        stack.push(op1 * op2);
         break;
 
       case '/':
-        stack.push(stack.pop() / stack.pop());
+        op2 = stack.pop();
+        op1 = stack.pop();
+        stack.push(op1 / op2);
         break;
 
       case '+':
-        stack.push(stack.pop() + stack.pop());
+        op2 = stack.pop();
+        op1 = stack.pop();
+        stack.push(op1 + op2);
         break;
 
       case '-':
-        stack.push(stack.pop() - stack.pop());
+        op2 = stack.pop();
+        op1 = stack.pop();
+        stack.push(op1 - op2);
         break;
 
       default:
