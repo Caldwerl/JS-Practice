@@ -155,3 +155,19 @@ postfixEquation = convertInToPost(infixEquation);
 print(infixEquation);
 print(postfixEquation);
 print(evalPostfix(postfixEquation));
+
+infixEquation = "1+(2*8)-4";
+
+postfixEquation = convertInToPost(infixEquation);
+
+print(infixEquation);
+print(postfixEquation);
+print(evalPostfix(postfixEquation));
+
+infixEquation = "1+(8/2)-4";
+
+postfixEquation = convertInToPost(infixEquation);
+
+print(infixEquation);
+print(postfixEquation);
+print(evalPostfix(postfixEquation));
