@@ -33,6 +33,8 @@
 
 ### LinkedLists
 
-1. Implement advance(n) function
+1. Implement a Doubly Linked list with the advance(n) function
 2. Implement back(n) function
 3. Implement show() function
+4. Implement a Singly Linked List
+5. Implement a Circly Linked List and remove every nth node, display remaining nodes
