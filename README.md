@@ -45,3 +45,10 @@
 2. Add function to count edges
 3. Add function to find max value
 4. Add function to find min value
+
+###SortingAlgorithms
+
+1. Compare the run times of Bubble, Insertion, and Selection sort with strings and integers
+2. Compare the run times of the 3 sorts with 1,000 sorted integers
+3. Compare the run times of the 3 sorts with 1,000 reverse sorted integers
+4. Compare the run times of Quicksort and Array.sort() with 10,000 integers

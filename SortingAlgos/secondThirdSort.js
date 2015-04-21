@@ -1,5 +1,6 @@
 /*
-  Compare runtimes of 3 main sorting algorithms with strings and numbers
+  Compare runtimes of 3 main sorting algorithms
+  with sorted and reverse sorted data
 */
 
 function bubbleSort () {
@@ -68,7 +69,6 @@ function DataArray (numElements) {
   this.toString = toString;
   this.clear = clear;
   this.setData = setData;
-  this.setSData = setSData;
   this.swap = swap;
   this.bubbleSort = bubbleSort;
   this.insertionSort = insertionSort;
@@ -85,17 +85,6 @@ function setData () {
   for (var i = 0;  i < this.numElements; i++) {
 
     this.dataStore[i] = Math.floor(Math.random() * (this.numElements + 1));
-  }
-}
-
-function setSData () {
-  for (var i = 0;  i < this.numElements; i++) {
-
-    this.dataStore[i] = String.fromCharCode(Math.floor(Math.random() * (this.numElements + 1)))
-                      + String.fromCharCode(Math.floor(Math.random() * (this.numElements + 1)))
-                      + String.fromCharCode(Math.floor(Math.random() * (this.numElements + 1)))
-                      + String.fromCharCode(Math.floor(Math.random() * (this.numElements + 1)))
-                      + String.fromCharCode(Math.floor(Math.random() * (this.numElements + 1)));
   }
 }
 
@@ -139,13 +128,14 @@ function swap (arr, index1, index2) {
 
 
 
-var numElements = 100;
+var numElements = 1000;
 
 print("Number of elements to be tested: " + numElements);
 
-print("Beginning numeric bubble sort test...");
+print("Beginning sorted bubble sort test...");
 var bubbleData = new DataArray(numElements);
 bubbleData.setData();
+bubbleData.dataStore.sort();
 
 var start = new Date().getTime();
 bubbleData.bubbleSort();
@@ -155,9 +145,10 @@ print("Bubble runtime was: " + elapsed + " milliseconds.");
 
 
 
-print("Beginning numeric selection sort test...");
+print("Beginning sorted selection sort test...");
 var selectionData = new DataArray(numElements);
 selectionData.setData();
+selectionData.dataStore.sort();
 
 start = new Date().getTime();
 selectionData.selectionSort();
@@ -167,9 +158,10 @@ print("Selection runtime was: " + elapsed + " milliseconds.");
 
 
 
-print("Beginning numeric insertion sort test...");
+print("Beginning sorted insertion sort test...");
 var insertionData = new DataArray(numElements);
 insertionData.setData();
+insertionData.dataStore.sort();
 
 start = new Date().getTime();
 insertionData.insertionSort();
@@ -181,37 +173,33 @@ print("Insertion runtime was: " + elapsed + " milliseconds.");
 
 
 
+print("Beginning reverse sorted bubble sort test...");
+bubbleData.dataStore.reverse();
 
-print("Beginning string bubble sort test...");
-var bubbleSData = new DataArray(numElements);
-bubbleSData.setSData();
-
-start = new Date().getTime();
-bubbleSData.bubbleSort();
-stop = new Date().getTime();
-elapsed = stop - start;
+var start = new Date().getTime();
+bubbleData.bubbleSort();
+var stop = new Date().getTime();
+var elapsed = stop - start;
 print("Bubble runtime was: " + elapsed + " milliseconds.");
 
 
 
-print("Beginning string selection sort test...");
-var selectionSData = new DataArray(numElements);
-selectionSData.setSData();
+print("Beginning reverse sorted selection sort test...");
+selectionData.dataStore.reverse();
 
 start = new Date().getTime();
-selectionSData.selectionSort();
+selectionData.selectionSort();
 stop = new Date().getTime();
 elapsed = stop - start;
 print("Selection runtime was: " + elapsed + " milliseconds.");
 
 
 
-print("Beginning string insertion sort test...");
-var insertionSData = new DataArray(numElements);
-insertionSData.setSData();
+print("Beginning reverse sorted insertion sort test...");
+insertionData.dataStore.reverse();
 
 start = new Date().getTime();
-insertionSData.insertionSort();
+insertionData.insertionSort();
 stop = new Date().getTime();
 elapsed = stop - start;
 print("Insertion runtime was: " + elapsed + " milliseconds.");
