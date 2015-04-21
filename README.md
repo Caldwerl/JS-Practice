@@ -38,3 +38,10 @@
 3. Implement show() function
 4. Implement a Singly Linked List
 5. Implement a Circly Linked List and remove every nth node, display remaining nodes
+
+###BinarySearchTrees
+
+1. Add function to count nodes
+2. Add function to count edges
+3. Add function to find max value
+4. Add function to find min value
